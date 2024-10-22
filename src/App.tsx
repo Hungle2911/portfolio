@@ -4,11 +4,11 @@ import TextSphere from "./components/TextSphere";
 function App() {
   return (
     <>
-      <div className="container ">
-        <div className=" h-96">
+      <div className="bg-black text-white">
+        <div className="h-96">
           <Heading />
         </div>
-        <div className="ml-96">
+        <div className="">
           <TextSphere />
         </div>
       </div>
