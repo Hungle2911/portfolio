@@ -4,7 +4,7 @@ function Heading() {
       <h1 className="text-8xl font-bold font-mono mb-4 inline-block">
         WILLIAM_LE.DEV
       </h1>
-      <p className="text-2xl font-mono mt-8 max-w-2xl">
+      <p className="text-2xl font-mono mt-8">
         Having recently completed a comprehensive web development bootcamp, I
         have acquired skills in HTML, CSS, JavaScript, React, and Node.js, among
         other technologies. I aspire to work on projects that tackle real-world

@@ -180,6 +180,13 @@
   dependencies:
     levn "^0.4.1"
 
+"@frank-mayer/react-tag-cloud@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/react-tag-cloud/-/react-tag-cloud-1.2.1.tgz#c444963537c4c7b638ca2266906f3c4c952e4d35"
+  integrity sha512-xmbwDCLgk9PUpMzbUZU4Y8nMWX1rtnaP+B0h7Hkagtc+eWBzqYCxDOaXncXdcSpxVEbDbpT0ntK+bcuzy9zZyg==
+  dependencies:
+    TagCloud "^2.3.2"
+
 "@humanfs/core@^0.19.0":
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.0.tgz#08db7a8c73bb07673d9ebd925f2dad746411fcec"
@@ -551,6 +558,11 @@
   integrity sha512-vgWOY0i1EROUK0Ctg1hwhtC3SdcDjZcdit4Ups4aPkDcB1jYhmo+RMYWY87cmXMhvtD5uf8lV89j2w16vkdSVg==
   dependencies:
     "@swc/core" "^1.7.26"
+
+TagCloud@^2.3.2:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/TagCloud/-/TagCloud-2.5.0.tgz#9917b4ee52fe2130d391e7922e45eef7e3f9ca49"
+  integrity sha512-lMr8UCbOLOyP9iKc/lJalpNTm25rjmplbQ20ljw02tyx4ITBxDh4TRBhSpayC6QGjtRtvslUljfr2SGoPOGnXw==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
