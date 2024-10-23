@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MainTerminal from "./MainTerminal";
 
 const TerminalLine = () => {
   const terminalText =
@@ -12,7 +13,7 @@ const TerminalLine = () => {
       const timeout = setTimeout(() => {
         setDisplayedText((prev) => [...prev, words[currentWordIndex]]);
         setCurrentWordIndex((prevIndex) => prevIndex + 1);
-      }, 200);
+      }, 100);
       return () => clearTimeout(timeout);
     }
   }, [currentWordIndex, words]);
@@ -24,6 +25,7 @@ const TerminalLine = () => {
       {currentWordIndex < words.length && (
         <span className="animate-pulse">|</span>
       )}
+      {currentWordIndex === words.length && <MainTerminal />}
     </div>
   );
 };
