@@ -55,9 +55,6 @@ Backend:
 - Express
 - Django
 - Ruby on Rails
-- Jest
-- Pytest
-- Cypress
 
 Database:
 - PostgreSQL
@@ -68,6 +65,9 @@ Database:
 DevOps:
 - Docker
 - AWS
+- Jest
+- Pytest
+- Cypress
 - CI/CD
 - Git
     `.trim(),
