@@ -72,5 +72,42 @@ DevOps:
 - Git
     `.trim(),
   },
+  projects: {
+    description: 'Show project portfolio',
+    execute: () => `
+===========================
+PROJECTS
+===========================
+1. Rarecipe - Recipe Sharing System
+ - Tech: TypeScript, React, Django, Docker, AWS , PostgreSQL
+ - GitHub: https://github.com/Hungle2911/rarecipe
+ - Description: [
+  * Implemented containerization with Docker, ensuring consistent development and deployment environments
+  * Utilized PostgreSQL for robust data management and RESTful API design for efficient client-server communication
+  * Integrated Nginx as a reverse proxy to handle load balancing and serve static content
+  * Employed Git for version control and implemented CI/CD pipeline using GitHub Actions
+  * Designed backend with Python, Django REST Framework and Docker using Test Driven Development (TDD)
+ ]
 
-};
+2. Feline Good - Appointment Booking System
+ - Tech: TypeScript, React, Google Map API, PostgreSQL, Express.js, Prisma, React-hook-form, Auth0
+ - GitHub: https://github.com/Hungle2911/pet-hub
+ - Description: [
+  * User authentication and role-based access (owners/sitters) using Auth0
+  * Interactive booking system with Google Maps API integration
+  * Implemented RESTful API design principles and modern UI/UX practices
+ ]
+
+
+3. Calsifer's Hearth - Restaurant Ordering Pickup App
+ - Tech: TypeScript, React, PostgreSQL, Express.js, React-hook-form, Stripe
+ - GitHub: https://github.com/Hungle2911/food-order-pickup-react
+ - Description: [
+  *  Created a fully functional pre-order food website using React for the front end and Node.js/Express.js for the backend.
+  *  Implemented user authentication, product listings, and a shopping cart feature.
+  *  Used PostgreSQL for the database and integrated Stripe for payment processing.
+ ]
+
+Type 'contact' to get in touch about any projects.
+    `.trim(),
+  },
