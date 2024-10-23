@@ -6,8 +6,8 @@ import TextSphere from "./components/TextSphere";
 function App() {
   return (
     <>
-      <div className="bg-black text-white">
-        <div className="">
+      <div className="bg-black text-white min-h-screen">
+        <div className="px-4 py-12 text-center">
           <Heading />
         </div>
         <div className="flex">
