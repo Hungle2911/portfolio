@@ -125,5 +125,26 @@ Intern @ RMC Solutions (4/2024-8/2024)
 
     `.trim(),
   },
+  contact: {
+    description: 'Show contact information',
+    execute: () => `
+===========================
+CONTACT INFORMATION
+===========================
+Email: leehuanygo@gmail.com
+Location: Toronto, Ontario, Canada
 
+Type 'social' to view social media profiles.
+    `.trim(),
+  },
+  social: {
+    description: 'Display social media links',
+    execute: () => `
+===========================
+SOCIAL MEDIA
+===========================
+GitHub: https://github.com/Hungle2911
+LinkedIn: https://www.linkedin.com/in/william-le-6394921b7/
+    `.trim(),
+  },
 };
