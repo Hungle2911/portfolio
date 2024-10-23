@@ -111,3 +111,19 @@ PROJECTS
 Type 'contact' to get in touch about any projects.
     `.trim(),
   },
+  experience: {
+    description: 'Display work experience',
+    execute: () => `
+===========================
+WORK EXPERIENCE
+===========================
+Intern @ RMC Solutions (4/2024-8/2024)
+  - Collaborated with a cross-functional team on internal web apps for TELUS clients, streamlining business processes.
+  - Optimized websites with the marketing team for improved SEO and search engine rankings.
+  - Implemented Django for RESTful API development and conducted endpoint testing with Postman for frontend-backend integration.
+  - Developed over 100 unit and component tests with Cypress and Jest to ensure user flow integrity and functionality.
+
+    `.trim(),
+  },
+
+};
