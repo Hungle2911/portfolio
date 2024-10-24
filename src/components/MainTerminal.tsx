@@ -97,7 +97,7 @@ const MainTerminal = () => {
           <div
             key={i}
             className={`whitespace-pre-wrap ${
-              item.type === "input" && "text-yellow-400"
+              item.type === "input" ? "text-yellow-400" : "text-cyan-200"
             }`}
           >
             {item.content}

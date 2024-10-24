@@ -13,7 +13,6 @@ export const commands: { [key: string]: Command } = {
 - projects: Show project portfolio
 - experience: Display work experience
 - contact: Show contact information
-- social: Display social media links
     `.trim(),
   },
   about: {
