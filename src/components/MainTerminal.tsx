@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { commands } from "./commands/commands";
 
 interface HistoryItem {
@@ -10,6 +10,7 @@ const MainTerminal = () => {
   const [input, setInput] = useState<string>("");
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const outputRef = useRef<HTMLDivElement | null>(null);
 
   const typeOutput = (output: string) => {
     let index = 0;
@@ -83,9 +84,15 @@ const MainTerminal = () => {
     setInput("");
   };
 
+  useEffect(() => {
+    if (outputRef.current) {
+      outputRef.current.scrollTop = outputRef.current.scrollHeight;
+    }
+  }, [history]);
+
   return (
     <main>
-      <div>
+      <div ref={outputRef} className="h-[calc(100vh-100px)] overflow-y-auto">
         {history.map((item, i) => (
           <div
             key={i}

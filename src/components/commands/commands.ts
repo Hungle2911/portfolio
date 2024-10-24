@@ -40,37 +40,19 @@ Type 'skills' to see my technical expertise.
 TECHNICAL SKILLS
 ===========================
 Languages:
-- JavaScript/TypeScript
-- Python
-- Ruby
-- SQL
+JavaScript/TypeScript + Python + Ruby + SQL
 
 Frontend:
-- React.js
-- Bootstrap
-- HTML5/CSS3
-- Tailwind CSS
+React.js + Bootstrap + HTML5/CSS3 + Tailwind CSS
 
 Backend:
-- Node.js
-- Express
-- Django
-- Ruby on Rails
+Node.js + Express + Django + Ruby on Rails + jQuery
 
 Database:
-- PostgreSQL
-- Prisma
-- GraphQL
-
+PostgreSQL+ Prisma + GraphQL
 
 DevOps:
-- Docker
-- AWS
-- Jest
-- Pytest
-- Cypress
-- CI/CD
-- Git
+Docker + AWS + Jest + Pytest + Cypress + CI/CD + Git + GitHub Actions + Nginx
     `.trim(),
   },
   projects: {
