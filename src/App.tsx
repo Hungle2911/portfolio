@@ -10,7 +10,7 @@ function App() {
         <div className="px-4 py-12 text-center">
           <Heading />
         </div>
-        <div className="flex flex-col md:flex-row items-center md:justify-between ">
+        <div className="flex flex-col md:flex-row-reverse items-center md:justify-between ">
           <TextSphere />
           <TerminalLine />
         </div>
