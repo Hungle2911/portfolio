@@ -58,7 +58,10 @@ const MainTerminal = () => {
   const handleCommand = (cmd: string): string => {
     const trimmedCmd = cmd.trim().toLowerCase();
     if (trimmedCmd === "") return "";
-
+    if (trimmedCmd === "clear") {
+      setHistory([]);
+      return "";
+    }
     const command = commands[trimmedCmd];
     if (command) {
       const result = command.execute();

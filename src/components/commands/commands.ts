@@ -13,6 +13,7 @@ export const commands: { [key: string]: Command } = {
 - projects: Show project portfolio
 - experience: Display work experience
 - contact: Show contact information
+- clear: Clear all prompts and start fresh
     `.trim(),
   },
   about: {
