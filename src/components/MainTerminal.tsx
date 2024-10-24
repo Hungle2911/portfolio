@@ -8,28 +8,69 @@ interface HistoryItem {
 
 const MainTerminal = () => {
   const [input, setInput] = useState<string>("");
-  const [history, setHistory] = useState<HistoryItem[] | undefined>([]);
+  const [history, setHistory] = useState<HistoryItem[]>([]);
+
+  const typeOutput = (output: string) => {
+    let index = 0;
+    const typingSpeed = 20;
+
+    const typeNextChar = () => {
+      if (index < output.length) {
+        setHistory((prevHistory) => {
+          const newHistory = [...(prevHistory || [])];
+
+          if (
+            newHistory.length > 0 &&
+            newHistory[newHistory.length - 1].type === "output"
+          ) {
+            const lastOutput = { ...newHistory[newHistory.length - 1] };
+            lastOutput.content += output[index];
+            newHistory[newHistory.length - 1] = lastOutput;
+          } else {
+            newHistory.push({ type: "output", content: output[index] });
+          }
+
+          return newHistory;
+        });
+
+        index++;
+        setTimeout(typeNextChar, typingSpeed);
+      }
+    };
+
+    setHistory((prevHistory) => [
+      ...prevHistory!,
+      { type: "output", content: "" },
+    ]);
+
+    typeNextChar();
+  };
 
   const handleCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase();
-    if (trimmedCmd === "") return;
+    if (trimmedCmd === "") return "";
 
     const command = commands[trimmedCmd];
     if (command) {
       return command.execute();
     } else {
-      return `Command not found: ${trimmedCmd}. Type 'help' for available commands.`;
+      return ` Command not found: ${trimmedCmd}. Type 'help' for available commands.`;
     }
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmedInput = input.trim();
-    setHistory((prev) => [
-      ...prev,
-      { type: "input", content: `> ${trimmedInput}` },
-      { type: "output", content: handleCommand(trimmedInput) },
-    ]);
+
+    if (trimmedInput) {
+      setHistory((prev) => [
+        ...(prev || []),
+        { type: "input", content: `> ${trimmedInput}` },
+      ]);
+      const output = handleCommand(trimmedInput);
+      typeOutput(output);
+    }
+
     setInput("");
   };
 
@@ -40,7 +81,7 @@ const MainTerminal = () => {
           <div
             key={i}
             className={`whitespace-pre-wrap ${
-              item.type === "input" && "text-blue-600"
+              item.type === "input" && "text-yellow-400"
             }`}
           >
             {item.content}
@@ -48,7 +89,7 @@ const MainTerminal = () => {
         ))}
       </div>
       <form className="" onSubmit={handleSubmit}>
-        <span className="text-blue-600 font-pixelify">{"> "}</span>
+        <span className="text-yellow-400 font-pixelify">{"> "}</span>
         <input
           type="text"
           value={input}
