@@ -9,35 +9,41 @@ interface HistoryItem {
 const MainTerminal = () => {
   const [input, setInput] = useState<string>("");
   const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
 
   const typeOutput = (output: string) => {
     let index = 0;
     const typingSpeed = 20;
+    setIsTyping(true);
 
     const typeNextChar = () => {
-      setHistory((prevHistory) => {
-        const newHistory = [...prevHistory];
+      if (index < output.length) {
+        setHistory((prevHistory) => {
+          const newHistory = [...prevHistory];
 
-        if (
-          newHistory.length > 0 &&
-          newHistory[newHistory.length - 1].type === "output"
-        ) {
-          newHistory[newHistory.length - 1] = {
-            type: "output",
-            content: output.substring(0, index + 1),
-          };
-        } else {
-          newHistory.push({
-            type: "output",
-            content: output.substring(0, index + 1),
-          });
-        }
+          if (
+            newHistory.length > 0 &&
+            newHistory[newHistory.length - 1].type === "output"
+          ) {
+            newHistory[newHistory.length - 1] = {
+              type: "output",
+              content: output.substring(0, index + 1),
+            };
+          } else {
+            newHistory.push({
+              type: "output",
+              content: output.substring(0, index + 1),
+            });
+          }
 
-        return newHistory;
-      });
+          return newHistory;
+        });
 
-      index++;
-      setTimeout(typeNextChar, typingSpeed);
+        index++;
+        setTimeout(typeNextChar, typingSpeed);
+      } else {
+        setIsTyping(false);
+      }
     };
 
     setHistory((prevHistory) => [
@@ -65,7 +71,7 @@ const MainTerminal = () => {
     e.preventDefault();
     const trimmedInput = input.trim();
 
-    if (trimmedInput) {
+    if (trimmedInput && !isTyping) {
       setHistory((prev) => [
         ...prev,
         { type: "input", content: `> ${trimmedInput}` },
@@ -99,6 +105,7 @@ const MainTerminal = () => {
           onChange={(e) => setInput(e.target.value)}
           className="bg-transparent text-white outline-none"
           autoFocus
+          disabled={isTyping}
         />
       </form>
     </main>
