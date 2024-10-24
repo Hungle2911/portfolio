@@ -15,47 +15,50 @@ const MainTerminal = () => {
     const typingSpeed = 20;
 
     const typeNextChar = () => {
-      if (index < output.length) {
-        setHistory((prevHistory) => {
-          const newHistory = [...(prevHistory || [])];
+      setHistory((prevHistory) => {
+        const newHistory = [...prevHistory];
 
-          if (
-            newHistory.length > 0 &&
-            newHistory[newHistory.length - 1].type === "output"
-          ) {
-            const lastOutput = { ...newHistory[newHistory.length - 1] };
-            lastOutput.content += output[index];
-            newHistory[newHistory.length - 1] = lastOutput;
-          } else {
-            newHistory.push({ type: "output", content: output[index] });
-          }
+        if (
+          newHistory.length > 0 &&
+          newHistory[newHistory.length - 1].type === "output"
+        ) {
+          newHistory[newHistory.length - 1] = {
+            type: "output",
+            content: output.substring(0, index + 1),
+          };
+        } else {
+          newHistory.push({
+            type: "output",
+            content: output.substring(0, index + 1),
+          });
+        }
 
-          return newHistory;
-        });
+        return newHistory;
+      });
 
-        index++;
-        setTimeout(typeNextChar, typingSpeed);
-      }
+      index++;
+      setTimeout(typeNextChar, typingSpeed);
     };
 
     setHistory((prevHistory) => [
-      ...prevHistory!,
+      ...prevHistory,
       { type: "output", content: "" },
     ]);
 
     typeNextChar();
   };
 
-  const handleCommand = (cmd: string) => {
+  const handleCommand = (cmd: string): string => {
     const trimmedCmd = cmd.trim().toLowerCase();
     if (trimmedCmd === "") return "";
 
     const command = commands[trimmedCmd];
     if (command) {
-      return command.execute();
-    } else {
-      return ` Command not found: ${trimmedCmd}. Type 'help' for available commands.`;
+      const result = command.execute();
+      return result || "";
     }
+
+    return `Command not found: ${trimmedCmd}. Type 'help' for available commands.`;
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -64,7 +67,7 @@ const MainTerminal = () => {
 
     if (trimmedInput) {
       setHistory((prev) => [
-        ...(prev || []),
+        ...prev,
         { type: "input", content: `> ${trimmedInput}` },
       ]);
       const output = handleCommand(trimmedInput);
@@ -77,7 +80,7 @@ const MainTerminal = () => {
   return (
     <main>
       <div>
-        {history!.map((item, i) => (
+        {history.map((item, i) => (
           <div
             key={i}
             className={`whitespace-pre-wrap ${
