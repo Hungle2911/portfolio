@@ -19,7 +19,7 @@ const TerminalLine = () => {
   }, [currentWordIndex, words]);
 
   return (
-    <div className="text-green-600 font-pixelify">
+    <div className="text-green-600 font-pixelify mx-6">
       {"> "}
       {displayedText.join(" ")}
       {currentWordIndex < words.length && (

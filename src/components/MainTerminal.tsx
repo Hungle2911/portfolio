@@ -95,7 +95,7 @@ const MainTerminal = () => {
 
   return (
     <main>
-      <div ref={outputRef} className="h-[calc(100vh-100px)] overflow-y-auto">
+      <div ref={outputRef} className="h-[calc(75vh-100px)] overflow-y-auto">
         {history.map((item, i) => (
           <div
             key={i}
@@ -107,17 +107,19 @@ const MainTerminal = () => {
           </div>
         ))}
       </div>
-      <form className="" onSubmit={handleSubmit}>
-        <span className="text-yellow-400 font-pixelify">{"> "}</span>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="bg-transparent text-white outline-none"
-          autoFocus
-          disabled={isTyping}
-        />
-      </form>
+      {!isTyping && (
+        <form className="" onSubmit={handleSubmit}>
+          <span className="text-yellow-400 font-pixelify">{"> "}</span>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="bg-transparent text-white outline-none"
+            autoFocus
+            disabled={isTyping}
+          />
+        </form>
+      )}
     </main>
   );
 };
