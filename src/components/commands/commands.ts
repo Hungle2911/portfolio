@@ -19,6 +19,7 @@ export const commands: { [key: string]: Command } = {
   about: {
     description: 'Display information about me',
     execute: () => `
+    Of course! Here is a little bit about William:
 ===========================
 ABOUT ME
 ===========================
@@ -34,6 +35,7 @@ Type 'skills' to see my technical expertise.
   skills: {
     description: 'List technical skills',
     execute: () => `
+    Let see! Here are some of the technical skills that William has:
 ===========================
 TECHNICAL SKILLS
 ===========================
@@ -74,6 +76,7 @@ DevOps:
   projects: {
     description: 'Show project portfolio',
     execute: () => `
+    Certainly! May I present to you William's project portfolio ノ•ᴥ•ʔノ
 ===========================
 PROJECTS
 ===========================
@@ -113,6 +116,7 @@ Type 'contact' to get in touch about any projects.
   experience: {
     description: 'Display work experience',
     execute: () => `
+    Absolutely! Here is a summary of William's work experience:
 ===========================
 WORK EXPERIENCE
 ===========================
@@ -132,18 +136,16 @@ CONTACT INFORMATION
 ===========================
 Email: leehuanygo@gmail.com
 Location: Toronto, Ontario, Canada
-
-Type 'social' to view social media profiles.
-    `.trim(),
-  },
-  social: {
-    description: 'Display social media links',
-    execute: () => `
-===========================
-SOCIAL MEDIA
-===========================
 GitHub: https://github.com/Hungle2911
 LinkedIn: https://www.linkedin.com/in/william-le-6394921b7/
+    `.trim(),
+  },
+  hello: {
+    description: 'Greet the user',
+    execute: () => `
+===========================
+Hello fellow human! I am William's personal assistant. How can I help you today? (⌐■_■)
+===========================
     `.trim(),
   },
 };

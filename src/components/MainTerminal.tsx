@@ -64,7 +64,7 @@ const MainTerminal = () => {
       return result || "";
     }
 
-    return `Command not found: ${trimmedCmd}. Type 'help' for available commands.`;
+    return `I am not sure what you meant by: /${trimmedCmd}/. You can say "help" to see what command are available.   =＾● ⋏ ●＾=`;
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
