@@ -8,6 +8,7 @@ export const commands: { [key: string]: Command } = {
     description: 'Show available commands',
     keywords: ['help', '?', 'assist', 'commands', 'list', 'options'],
     execute: () => `
+    I can certainly help you with that! ★>d(,,･ε´-,,)⌒☆
   ----- Available commands: -----
 - help: Show this help message
 - about: Display information about me
@@ -23,6 +24,7 @@ export const commands: { [key: string]: Command } = {
     keywords: ['about', 'who', 'info', 'william'],
     execute: () => `
     Of course! Here is a little bit about William:
+    (☞⌐▀͡ ͜ʖ͡▀ )☞
 ===========================
 ABOUT ME
 ===========================
@@ -39,7 +41,7 @@ Type 'skills' to see my technical expertise.
     description: 'List technical skills',
     keywords: ['skills', 'tech', 'languages', 'stack'],
     execute: () => `
-    Let see! Here are some of the technical skills that William has:
+    Let see! ( ✧≖ ͜ʖ≖) Here are some of the technical skills that William has:
 ===========================
 TECHNICAL SKILLS
 ===========================
@@ -118,7 +120,7 @@ Intern @ RMC Solutions (4/2024-8/2024)
   },
   contact: {
     description: 'Show contact information',
-    keywords: ['contact', 'connect'],
+    keywords: ['contact', 'connect', 'network'],
     execute: () => `
 ===========================
 CONTACT INFORMATION
@@ -150,7 +152,7 @@ Hello fellow human! It's really nice to see you. How can I help you today? (⌐�
   },
   linkedin: {
     description: 'Greet the user',
-    keywords: ['linkedin', 'network'],
+    keywords: ['linkedin'],
     execute: () => {
       window.open(`https://www.linkedin.com/in/william-le-6394921b7/`, '_blank');
       return "Opening LinkedIn...";

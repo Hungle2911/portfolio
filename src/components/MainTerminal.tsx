@@ -96,7 +96,7 @@ const MainTerminal = () => {
 
   return (
     <main>
-      <div ref={outputRef} className="h-[calc(75vh-100px)] overflow-y-auto">
+      <div ref={outputRef} className="h-[calc(60vh-100px)] overflow-y-auto">
         {history.map((item, i) => (
           <div
             key={i}
