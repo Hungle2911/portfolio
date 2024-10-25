@@ -130,4 +130,18 @@ Hello fellow human! I am William's personal assistant. How can I help you today?
 ===========================
     `.trim(),
   },
+  github: {
+    description: 'Greet the user',
+    execute: () => {
+      window.open(`https://github.com/Hungle2911`, '_blank');
+      return "Opening GitHub...";
+    }
+  },
+  linkedin: {
+    description: 'Greet the user',
+    execute: () => {
+      window.open(`https://www.linkedin.com/in/william-le-6394921b7/`, '_blank');
+      return "Opening LinkedIn...";
+    }
+  },
 };
