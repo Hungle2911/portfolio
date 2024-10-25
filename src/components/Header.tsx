@@ -1,6 +1,6 @@
-function Heading() {
+function Header() {
   return (
-    <div>
+    <header>
       <h1 className="text-4xl md:text-7xl font-bold font-mono mb-4">
         WILLIAM_LE.DEV
       </h1>
@@ -11,8 +11,8 @@ function Heading() {
         society, whether through improving healthcare systems or enhancing
         accessibility for everyone on the internet.
       </p>
-    </div>
+    </header>
   );
 }
 
-export default Heading;
+export default Header;
