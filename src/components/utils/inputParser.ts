@@ -21,7 +21,7 @@ const calculateSimilarity = (str1: string, str2: string): number => {
     score: 0.3 // Minimum similarity threshold
   };
 
-  for (const [cmdKey, command] of Object.entries(commands)) {
+  for (const [_cmdKey, command] of Object.entries(commands)) {
     const keywordScores = command.keywords.map(keyword => {
       return words.map(word => calculateSimilarity(keyword, word))
         .reduce((max, score) => Math.max(max, score), 0);
