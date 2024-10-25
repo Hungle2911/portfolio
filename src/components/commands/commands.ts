@@ -1,10 +1,12 @@
 interface Command {
   description: string;
+  keywords: string[];
   execute: () => string;
 }
 export const commands: { [key: string]: Command } = {
   help: {
     description: 'Show available commands',
+    keywords: ['help', '?', 'assist', 'commands'],
     execute: () => `
   ----- Available commands: -----
 - help: Show this help message
@@ -18,6 +20,7 @@ export const commands: { [key: string]: Command } = {
   },
   about: {
     description: 'Display information about me',
+    keywords: ['about', 'who', 'info', 'william'],
     execute: () => `
     Of course! Here is a little bit about William:
 ===========================
@@ -34,6 +37,7 @@ Type 'skills' to see my technical expertise.
   },
   skills: {
     description: 'List technical skills',
+    keywords: ['skills', 'tech', 'languages', 'stack'],
     execute: () => `
     Let see! Here are some of the technical skills that William has:
 ===========================
@@ -57,6 +61,7 @@ Docker + AWS + Jest + Pytest + Cypress + CI/CD + Git + GitHub Actions + Nginx
   },
   projects: {
     description: 'Show project portfolio',
+    keywords: ['projects', 'portfolio', 'work'],
     execute: () => `
     Certainly! May I present to you William's project portfolio ノ•ᴥ•ʔノ
 ===========================
@@ -97,6 +102,7 @@ Type 'contact' to get in touch about any projects.
   },
   experience: {
     description: 'Display work experience',
+    keywords: ['experience', 'work', 'internship'],
     execute: () => `
     Absolutely! Here is a summary of William's work experience:
 ===========================
@@ -112,6 +118,7 @@ Intern @ RMC Solutions (4/2024-8/2024)
   },
   contact: {
     description: 'Show contact information',
+    keywords: ['contact', 'connect'],
     execute: () => `
 ===========================
 CONTACT INFORMATION
@@ -120,18 +127,22 @@ Email: leehuanygo@gmail.com
 Location: Toronto, Ontario, Canada
 GitHub: https://github.com/Hungle2911
 LinkedIn: https://www.linkedin.com/in/william-le-6394921b7/
+
+I can redirect you to William's GitHub or LinkedIn if you would like to connect with him. Just type 'github' or 'linkedin' to open the link in a new tab. ᕙ(⇀‸↼‶)ᕗ
     `.trim(),
   },
   hello: {
     description: 'Greet the user',
+    keywords: ['hello', 'hi', 'hey', 'greetings'],
     execute: () => `
 ===========================
-Hello fellow human! I am William's personal assistant. How can I help you today? (⌐■_■)
+Hello fellow human! It's really nice to see you. How can I help you today? (⌐■_■)
 ===========================
     `.trim(),
   },
   github: {
     description: 'Greet the user',
+    keywords: ['github', 'git', 'repository'],
     execute: () => {
       window.open(`https://github.com/Hungle2911`, '_blank');
       return "Opening GitHub...";
@@ -139,6 +150,7 @@ Hello fellow human! I am William's personal assistant. How can I help you today?
   },
   linkedin: {
     description: 'Greet the user',
+    keywords: ['linkedin', 'network'],
     execute: () => {
       window.open(`https://www.linkedin.com/in/william-le-6394921b7/`, '_blank');
       return "Opening LinkedIn...";
