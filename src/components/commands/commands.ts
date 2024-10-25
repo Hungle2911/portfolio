@@ -1,4 +1,4 @@
-interface Command {
+export interface Command {
   description: string;
   keywords: string[];
   execute: () => string;
@@ -6,7 +6,7 @@ interface Command {
 export const commands: { [key: string]: Command } = {
   help: {
     description: 'Show available commands',
-    keywords: ['help', '?', 'assist', 'commands'],
+    keywords: ['help', '?', 'assist', 'commands', 'list', 'options'],
     execute: () => `
   ----- Available commands: -----
 - help: Show this help message

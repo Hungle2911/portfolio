@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { commands } from "./commands/commands";
+import detectCommand from "./utils/inputParser";
 
 interface HistoryItem {
   type: "input" | "output";
@@ -62,7 +63,7 @@ const MainTerminal = () => {
       setHistory([]);
       return "";
     }
-    const command = commands[trimmedCmd];
+    const command = detectCommand(trimmedCmd, commands);
     if (command) {
       const result = command.execute();
       return result || "";

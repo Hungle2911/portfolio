@@ -1,3 +1,5 @@
+import { Command } from "../commands/commands";
+
 const calculateSimilarity = (str1: string, str2: string): number => {
   str1 = str1.toLowerCase();
   str2 = str2.toLowerCase();
@@ -11,3 +13,29 @@ const calculateSimilarity = (str1: string, str2: string): number => {
 
   return intersection.size / Math.max(set1.size, set2.size);
 };
+ const detectCommand = (input: string, commands: Record<string, Command>): Command | null => {
+  const words = input.toLowerCase().trim().split(/\s+/);
+
+  let bestMatch: { command: Command | null; score: number } = {
+    command: null,
+    score: 0.3 // Minimum similarity threshold
+  };
+
+  for (const [cmdKey, command] of Object.entries(commands)) {
+    const keywordScores = command.keywords.map(keyword => {
+      return words.map(word => calculateSimilarity(keyword, word))
+        .reduce((max, score) => Math.max(max, score), 0);
+    });
+    const bestKeywordScore = Math.max(...keywordScores, 0);
+
+    if (bestKeywordScore > bestMatch.score) {
+      bestMatch = {
+        command: command,
+        score: bestKeywordScore
+      };
+    }
+  }
+
+  return bestMatch.command;
+};
+export default detectCommand;
