@@ -22,6 +22,13 @@ const calculateSimilarity = (str1: string, str2: string): number => {
   };
 
   for (const [_cmdKey, command] of Object.entries(commands)) {
+    //Search for exact match
+    for (const word of words) {
+    if (command.keywords.some(keyword => keyword.toLowerCase() === word)) {
+      return command;
+    }
+  }
+  //Search for partial match if the first search failed
     const keywordScores = command.keywords.map(keyword => {
       return words.map(word => calculateSimilarity(keyword, word))
         .reduce((max, score) => Math.max(max, score), 0);
